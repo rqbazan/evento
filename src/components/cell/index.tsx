@@ -4,6 +4,7 @@ import cs from 'classnames'
 
 export interface CellProps {
   date: Date
+  disabled?: boolean
   isToday?: boolean
   className?: string
 }
@@ -12,13 +13,17 @@ const Cell: React.FC<CellProps> = ({
   className,
   date,
   isToday = false,
+  disabled = false,
   children
 }) => {
   return (
     <div
-      role="button"
       className={cs(
-        'flex flex-col border border-border bg-cell p-2 hover:bg-hover',
+        {
+          'bg-disabled cursor-not-allowed': disabled,
+          'bg-cell hover:bg-hover cursor-pointer': !disabled
+        },
+        'flex flex-col border border-border p-2',
         className
       )}
       style={{ minHeight: 166, maxHeight: 166 }}

@@ -5,7 +5,7 @@ export default function getCalendarDates(fullYear: number, month: number) {
 
   let day = startIndexDayOfMonth
 
-  while (day < 35 - Math.abs(startIndexDayOfMonth)) {
+  for (let index = 0; index < 35; index++) {
     calendarDates.push(new Date(fullYear, month, day++))
   }
 
