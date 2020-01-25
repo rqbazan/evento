@@ -16,7 +16,7 @@ function camel(str) {
 const TARGET_DIR = path.resolve('src/components/icon')
 
 const ICON_NAMES = fs
-  .readdirSync('./static/icons')
+  .readdirSync('./src/icons')
   .map(name => name.replace('.svg', ''))
 
 const COMPONENT_NAMES = ICON_NAMES.map(camel)
@@ -27,7 +27,7 @@ if (!fs.existsSync(TARGET_DIR)) {
 
 function getCode() {
   const importFmt = (name, i) =>
-    `import ${COMPONENT_NAMES[i]} from 'icons/${name}.svg'`
+    `import ${COMPONENT_NAMES[i]} from '~/icons/${name}.svg'`
 
   const typeFmt = name => `'${name}'`
 

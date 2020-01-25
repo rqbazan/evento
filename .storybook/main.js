@@ -29,7 +29,7 @@ module.exports = {
     })
 
     const fileLoaderRule = rules.find(rule => rule.test.test('.svg'))
-    fileLoaderRule.exclude = path.resolve('static/icons')
+    fileLoaderRule.exclude = path.resolve('src/icons')
 
     rules.push({
       test: /\.svg$/,
