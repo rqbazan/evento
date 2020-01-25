@@ -19,8 +19,8 @@ jobs:
       - name: Static testing
         run: yarn validate
 
-#      - name: Unit testing
-#        run: yarn test
+      - name: Unit testing
+        run: yarn test
 
         env:
           CI: true
