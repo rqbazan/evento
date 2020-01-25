@@ -1,8 +1,7 @@
 import React from 'react'
-import isToday from 'date-fns/isToday'
 import formatDate from 'date-fns/format'
 import Cell from '~/components/cell'
-import ColHeader from '~/components/col-header'
+import HeaderItem from '~/components/header-item'
 import Navigator from '~/components/navigator'
 import useCalendarState from './use-state'
 
@@ -21,28 +20,29 @@ const Calendar: React.FC = () => {
 
   return (
     <div className="p-8 flex flex-col justify-center">
-      <div className="mb-4 flex align-center justify-between">
-        <h1 className="text-2xl text-title font-bold">
+      <div className="flex items-center justify-center">
+        <h1 className="text-3xl font-bold text-gray-200">Evento</h1>
+      </div>
+      <div className="flex align-center justify-between mb-4 ">
+        <h2 className="text-2xl text-gray-200 font-bold">
           {formatDate(state.currentMonth, 'MMMM yyyy')}
-        </h1>
+        </h2>
         <Navigator
           onPrev={dispatchers.onPrevMonth}
           onToday={dispatchers.onCurrentMonth}
           onNext={dispatchers.onNextMonth}
         />
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex w-full">
         {dayNames.map(dayName => (
-          <div key={dayName} style={{ width: 'calc(100% / 7)' }}>
-            <ColHeader>{dayName}</ColHeader>
-          </div>
+          <HeaderItem key={dayName} className="w-1/7">
+            {dayName}
+          </HeaderItem>
         ))}
+      </div>
+      <div className="flex flex-wrap">
         {state.days.map(date => {
-          return (
-            <div key={date.toISOString()} style={{ width: 'calc(100% / 7)' }}>
-              <Cell date={date} isToday={isToday(date)} />
-            </div>
-          )
+          return <Cell key={date.toISOString()} date={date} className="w-1/7" />
         })}
       </div>
     </div>

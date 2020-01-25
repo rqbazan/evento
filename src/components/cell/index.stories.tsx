@@ -1,15 +1,12 @@
 import React from 'react'
-import { boolean } from '@storybook/addon-knobs'
 import ReminderPreview from '../reminder-preview'
 import Cell from './index'
 
 export default { title: 'Cell' }
 
 export const Default = () => {
-  const isToday = boolean('isToday', false)
-
   return (
-    <Cell date={new Date()} isToday={isToday}>
+    <Cell date={new Date()}>
       <ReminderPreview
         dueDate={new Date()}
         bgColor="#efdcee"
@@ -27,10 +24,8 @@ export const Default = () => {
 }
 
 export const Overflow = () => {
-  const isToday = boolean('isToday', false)
-
   return (
-    <Cell date={new Date()} isToday={isToday}>
+    <Cell date={new Date()}>
       <ReminderPreview
         dueDate={new Date()}
         bgColor="#efdcee"

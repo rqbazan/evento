@@ -3,4 +3,8 @@
 /* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+
+body {
+  @apply bg-gray-900;
+}
 /* purgecss end ignore */
