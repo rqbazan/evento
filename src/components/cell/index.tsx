@@ -18,7 +18,7 @@ const Cell: React.FC<CellProps> = ({
     <div
       role="button"
       className={cs(
-        'flex flex-col border border-border bg-cell p-2',
+        'flex flex-col border border-border bg-cell p-2 hover:bg-hover',
         className
       )}
       style={{ minHeight: 166, maxHeight: 166 }}

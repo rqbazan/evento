@@ -4,6 +4,7 @@ module.exports = {
       colors: {
         cell: '#FFFCF4',
         border: '#D4D4D4',
+        hover: '#FFECBB',
         text: '#5F5F5F',
         title: '#3F3F3F',
         accent: {
