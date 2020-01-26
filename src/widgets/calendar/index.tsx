@@ -1,4 +1,5 @@
 import React from 'react'
+import cs from 'classnames'
 import formatDate from 'date-fns/format'
 import Cell from '~/components/cell'
 import HeaderItem from '~/components/header-item'
@@ -15,16 +16,17 @@ const dayNames = [
   'Saturday'
 ]
 
-const Calendar: React.FC = () => {
+export interface CalendarProps {
+  className?: string
+}
+
+const Calendar: React.FC<CalendarProps> = ({ className }) => {
   const { state, dispatchers } = useCalendarState()
 
   return (
-    <div className="p-8 flex flex-col justify-center">
-      <div className="flex items-center justify-center">
-        <h1 className="text-3xl font-bold text-gray-200">Evento</h1>
-      </div>
-      <div className="flex align-center justify-between mb-4 ">
-        <h2 className="text-2xl text-gray-200 font-bold">
+    <div className={cs('flex flex-col', className)}>
+      <div className="flex align-center justify-between mb-4">
+        <h2 className="text-2xl text-gray-200 font-medium">
           {formatDate(state.currentMonth, 'MMMM yyyy')}
         </h2>
         <Navigator
