@@ -26,7 +26,7 @@ const Calendar: React.FC<CalendarProps> = ({ className }) => {
   return (
     <div className={cs('flex flex-col', className)}>
       <div className="flex align-center justify-between mb-4">
-        <h2 className="text-2xl text-gray-200 font-medium">
+        <h2 className="text-2xl text-gray-900 font-medium">
           {formatDate(state.currentMonth, 'MMMM yyyy')}
         </h2>
         <Navigator
