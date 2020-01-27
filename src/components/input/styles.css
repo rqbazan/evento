@@ -1,0 +1,15 @@
+.input {
+  @apply h-10 px-4 w-full bg-white border border-gray-400 rounded;
+
+  &:focus {
+    @apply outline-none border-gray-500;
+  }
+}
+
+.input--icon {
+  @apply mx-3 absolute h-6 w-6;
+
+  & + input {
+    @apply pl-12 pr-4;
+  }
+}

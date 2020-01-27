@@ -1,4 +1,5 @@
 import React from 'react'
+import cs from 'classnames'
 
 export interface TextAreaProps
   extends React.HTMLAttributes<HTMLTextAreaElement> {
@@ -15,7 +16,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   const [count, setCount] = React.useState(0)
 
   return (
-    <div style={style} className={className}>
+    <div style={style} className={cs('flex flex-col', className)}>
       <textarea
         className="p-4 w-full rounded border border-gray-400 focus:outline-none focus:border-gray-500"
         maxLength={maxLength}
@@ -28,7 +29,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         {...props}
       />
       {maxLength && (
-        <div className="flex justify-end mt-2">
+        <div className="flex justify-end mt-1">
           <span>{`${count}/${maxLength}`}</span>
         </div>
       )}
