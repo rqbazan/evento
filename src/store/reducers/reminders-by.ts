@@ -7,13 +7,22 @@ const initialState: AppState['remindersBy'] = {}
 function addReminder(remindersBy: AppState['remindersBy'], action: AppAction) {
   const { dayKey, reminder } = action.payload
 
-  const reminders = remindersBy[dayKey] ?? []
-  const newReminders = reminders.concat(reminder)
+  return immer(remindersBy, draft => {
+    const reminders = draft[dayKey] ?? []
 
-  return {
-    ...remindersBy,
-    [dayKey]: newReminders
-  }
+    let sortedIndex = 0
+
+    while (sortedIndex < reminders.length) {
+      if (reminders[sortedIndex].time > reminder.time) {
+        break
+      }
+      sortedIndex++
+    }
+
+    reminders.splice(sortedIndex, 0, reminder)
+
+    draft[dayKey] = reminders
+  })
 }
 
 function updateReminder(
