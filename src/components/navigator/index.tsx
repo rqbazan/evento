@@ -8,9 +8,9 @@ export interface NavigatorProps {
   onToday(): void
 }
 
-type ButtonProps = React.HTMLAttributes<HTMLButtonElement>
+type InlineButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
-const Button: React.FC<ButtonProps> = ({ className, ...props }) => (
+const InlineButton: React.FC<InlineButtonProps> = ({ className, ...props }) => (
   <button
     type="button"
     className={cs(
@@ -24,15 +24,15 @@ const Button: React.FC<ButtonProps> = ({ className, ...props }) => (
 const Navigator: React.FC<NavigatorProps> = ({ onNext, onPrev, onToday }) => {
   return (
     <div className="inline-flex items-center">
-      <Button onClick={onPrev} className="mr-2">
+      <InlineButton onClick={onPrev} className="mr-2">
         <Icon name="cheveron" style={{ transform: 'rotate(180deg)' }} />
-      </Button>
-      <Button onClick={onToday} className="mr-2 px-4">
+      </InlineButton>
+      <InlineButton onClick={onToday} className="mr-2 px-4">
         Today
-      </Button>
-      <Button onClick={onNext}>
+      </InlineButton>
+      <InlineButton onClick={onNext}>
         <Icon name="cheveron" />
-      </Button>
+      </InlineButton>
     </div>
   )
 }

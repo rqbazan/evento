@@ -7,18 +7,21 @@ export interface InputProps
   icon?: React.ReactNode
 }
 
-const Input: React.FC<InputProps> = ({ icon = null, className, ...props }) => {
-  return (
-    <div className={cs('flex items-center relative', className)}>
-      {!!icon && <div className="input--icon">{icon}</div>}
-      <input
-        className="input"
-        spellCheck="false"
-        autoComplete="off"
-        {...props}
-      />
-    </div>
-  )
-}
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ icon = null, className, ...props }, ref) => {
+    return (
+      <div className={cs('flex items-center relative', className)}>
+        {!!icon && <div className="input--icon">{icon}</div>}
+        <input
+          ref={ref}
+          className="input"
+          spellCheck="false"
+          autoComplete="off"
+          {...props}
+        />
+      </div>
+    )
+  }
+)
 
 export default Input

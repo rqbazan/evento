@@ -1,7 +1,7 @@
 import React from 'react'
 import cs from 'classnames'
 
-export type ButtonProps = React.HTMLAttributes<HTMLButtonElement>
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const Button: React.FC<ButtonProps> = ({ className, ...props }) => {
   return (

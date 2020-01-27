@@ -4,12 +4,12 @@ import ReactDOM from 'react-dom'
 import Icon from '~/components/icon'
 import Escapable from './escapable'
 
-interface Controller {
+export interface Controller {
   open(component: React.FC, props?: any): void
   close(): void
 }
 
-interface Context {
+export interface Context {
   controller?: Controller
   modal?: {
     component: React.FC | null

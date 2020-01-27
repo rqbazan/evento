@@ -1,10 +1,14 @@
 import React from 'react'
 import cs from 'classnames'
 import formatDate from 'date-fns/format'
+import { connect } from 'react-redux'
 import Cell from '~/components/cell'
 import HeaderItem from '~/components/header-item'
 import Navigator from '~/components/navigator'
+import { AppState } from '~/types'
+import getDayKey from '~/utils/get-day-key'
 import useCalendarState from './use-state'
+import ReminderPreview from '~/components/reminder-preview'
 
 const dayNames = [
   'Sunday',
@@ -18,10 +22,15 @@ const dayNames = [
 
 export interface CalendarProps {
   className?: string
+  remindersBy?: AppState['remindersBy']
   onDayClick(date: Date): void
 }
 
-const Calendar: React.FC<CalendarProps> = ({ onDayClick, className }) => {
+const Calendar: React.FC<CalendarProps> = ({
+  onDayClick,
+  className,
+  remindersBy
+}) => {
   const { state, dispatchers } = useCalendarState()
 
   return (
@@ -44,14 +53,26 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick, className }) => {
         ))}
       </div>
       <div className="flex flex-wrap">
-        {state.days.map(date => {
+        {state.days.map(day => {
+          const dayKey = getDayKey(day)
+
           return (
             <Cell
-              key={date.toISOString()}
+              key={dayKey}
               className="w-1/7"
-              date={date}
-              onClick={() => onDayClick(date)}
-            />
+              date={day}
+              onClick={() => onDayClick(day)}
+            >
+              {remindersBy?.[dayKey]?.map(reminder => (
+                <ReminderPreview
+                  className="mb-2 last:mb-0"
+                  key={reminder.id}
+                  bgColor={reminder.bgColor}
+                  description={reminder.description}
+                  time={reminder.time}
+                />
+              ))}
+            </Cell>
           )
         })}
       </div>
@@ -59,4 +80,8 @@ const Calendar: React.FC<CalendarProps> = ({ onDayClick, className }) => {
   )
 }
 
-export default Calendar
+function mapStateToProps(state: AppState) {
+  return { remindersBy: state.remindersBy }
+}
+
+export default connect(mapStateToProps)(Calendar)

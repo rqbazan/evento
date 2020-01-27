@@ -1,18 +1,17 @@
 import React from 'react'
-import formatDate from 'date-fns/format'
 import { darken } from 'polished'
 import cs from 'classnames'
 
 export interface ReminderPreviewProps {
-  dueDate: Date
+  time: string
   bgColor: string
-  text: string
+  description: string
   className?: string
 }
 
 const ReminderPreview: React.FC<ReminderPreviewProps> = ({
-  dueDate,
-  text,
+  time,
+  description,
   bgColor,
   className
 }) => {
@@ -24,9 +23,9 @@ const ReminderPreview: React.FC<ReminderPreviewProps> = ({
         color: darken(0.4, bgColor)
       }}
     >
-      {formatDate(dueDate, 'hh:mm a')}
+      {time}
       {' - '}
-      {text}
+      {description}
     </li>
   )
 }

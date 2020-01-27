@@ -10,8 +10,8 @@ export const Default = () => {
   return (
     <ul>
       <ReminderPreview
-        dueDate={new Date()}
-        text="HR Interview"
+        time="10:00"
+        description="HR Interview"
         bgColor={bgColor}
       />
     </ul>
