@@ -18,9 +18,10 @@ const dayNames = [
 
 export interface CalendarProps {
   className?: string
+  onDayClick(date: Date): void
 }
 
-const Calendar: React.FC<CalendarProps> = ({ className }) => {
+const Calendar: React.FC<CalendarProps> = ({ onDayClick, className }) => {
   const { state, dispatchers } = useCalendarState()
 
   return (
@@ -44,7 +45,14 @@ const Calendar: React.FC<CalendarProps> = ({ className }) => {
       </div>
       <div className="flex flex-wrap">
         {state.days.map(date => {
-          return <Cell key={date.toISOString()} date={date} className="w-1/7" />
+          return (
+            <Cell
+              key={date.toISOString()}
+              className="w-1/7"
+              date={date}
+              onClick={() => onDayClick(date)}
+            />
+          )
         })}
       </div>
     </div>

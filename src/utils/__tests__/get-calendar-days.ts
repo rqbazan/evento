@@ -1,9 +1,9 @@
 import isSameDay from 'date-fns/isSameDay'
-import getCalendarDays from '../get-calendar-days'
+import getMonthDays from '../get-month-days'
 
 describe('get calendar days', () => {
   it('should generate the days for Januany, 2020', () => {
-    const result = getCalendarDays(2020, 0)
+    const result = getMonthDays(2020, 0)
 
     const expected = [
       new Date(2019, 11, 29),
@@ -19,7 +19,7 @@ describe('get calendar days', () => {
   })
 
   it('should generate the days for March, 2020', () => {
-    const result = getCalendarDays(2020, 2)
+    const result = getMonthDays(2020, 2)
 
     const expected = [
       ...Array.from({ length: 31 }, (_, index) => new Date(2020, 2, index + 1)),

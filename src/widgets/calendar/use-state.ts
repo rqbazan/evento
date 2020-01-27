@@ -1,6 +1,6 @@
 import React from 'react'
 import addMonths from 'date-fns/addMonths'
-import getCalendarDays from '~/utils/get-calendar-days'
+import getMonthDays from '~/utils/get-month-days'
 
 export enum ActionType {
   NEXT_MONTH,
@@ -21,7 +21,7 @@ export interface CalendarState {
 function initState(initDate: Date): CalendarState {
   return {
     currentMonth: initDate,
-    days: getCalendarDays(initDate.getFullYear(), initDate.getMonth())
+    days: getMonthDays(initDate.getFullYear(), initDate.getMonth())
   }
 }
 

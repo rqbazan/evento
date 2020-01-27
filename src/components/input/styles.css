@@ -7,9 +7,9 @@
 }
 
 .input--icon {
-  @apply mx-3 absolute h-6 w-6;
+  @apply mx-2 absolute h-6 w-6;
 
   & + input {
-    @apply pl-12 pr-4;
+    @apply pl-10 pr-4;
   }
 }
