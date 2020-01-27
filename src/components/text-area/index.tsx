@@ -9,6 +9,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   className,
   style,
   maxLength,
+  onChange,
   ...props
 }) => {
   const [count, setCount] = React.useState(0)
@@ -20,8 +21,8 @@ const TextArea: React.FC<TextAreaProps> = ({
         maxLength={maxLength}
         onChange={e => {
           setCount(e.target.value.length)
-          if (props.onChange) {
-            props.onChange(e)
+          if (onChange) {
+            onChange(e)
           }
         }}
         {...props}
