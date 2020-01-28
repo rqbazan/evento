@@ -25,7 +25,7 @@ const Cell: React.FC<CellProps> = ({ className, date, onClick, children }) => {
           onClick()
         }
       }}
-      style={{ minHeight: 166, maxHeight: 0 }}
+      style={{ minHeight: 120, maxHeight: 0 }}
       className={cs(
         'flex flex-col border border-border p-2 bg-white cursor-pointer focus:outline-none',
         {

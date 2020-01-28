@@ -8,11 +8,8 @@ export default function IndexPage() {
   const { controller } = useModal()
 
   return (
-    <div className="flex flex-col">
-      <header className="text-center py-2 bg-gray-700">
-        <h1 className="text-3xl font-bold text-gray-200">Evento</h1>
-      </header>
-      <div className="m-auto max-w-6xl px-4 mt-4">
+    <div className="flex flex-col h-screen items-center">
+      <div className="flex h-full max-w-6xl px-4 items-center">
         <Calendar
           onDayClick={(dayKey, remindersCount) => {
             if (remindersCount > 0) {
