@@ -23,7 +23,7 @@ const dayNames = [
 export interface CalendarProps {
   className?: string
   remindersBy?: AppState['remindersBy']
-  onDayClick(date: Date): void
+  onDayClick(dateKey: string, remindersCount: number): void
 }
 
 const Calendar: React.FC<CalendarProps> = ({
@@ -55,13 +55,14 @@ const Calendar: React.FC<CalendarProps> = ({
       <div className="flex flex-wrap">
         {state.days.map(day => {
           const dayKey = getDayKey(day)
+          const remindersCount = remindersBy?.[dayKey]?.length ?? 0
 
           return (
             <Cell
               key={dayKey}
               className="w-1/7"
               date={day}
-              onClick={() => onDayClick(day)}
+              onClick={() => onDayClick(dayKey, remindersCount)}
             >
               {remindersBy?.[dayKey]?.map(reminder => (
                 <ReminderPreview

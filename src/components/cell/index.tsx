@@ -48,7 +48,9 @@ const Cell: React.FC<CellProps> = ({ className, date, onClick, children }) => {
         {formatDate(date, 'dd')}
       </div>
       {children && (
-        <ul className="mt-2 flex flex-col min-h-0 overflow-auto">{children}</ul>
+        <div className="mt-2 flex flex-col min-h-0 overflow-auto">
+          {children}
+        </div>
       )}
     </div>
   )

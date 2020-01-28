@@ -56,7 +56,9 @@ const UpsertReminderModal: React.FC<UpsertReminderModalProps> = ({
 
   return (
     <div className="flex flex-col" style={{ width: 300 }}>
-      <h3 className="text-lg font-medium mb-6">Create Reminder</h3>
+      <h3 className="text-lg font-medium mb-6">
+        {reminder ? 'Update' : 'Create'} Reminder
+      </h3>
       <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-col mb-4 items-center justify-center">
           <Controller name="bgColor" as={ColorPicker} control={control} />

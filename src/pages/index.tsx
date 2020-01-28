@@ -2,7 +2,7 @@ import React from 'react'
 import { useModal } from '~/lib/modal'
 import Calendar from '~/widgets/calendar'
 import UpsertReminderModal from '~/widgets/upsert-reminder-modal'
-import getDayKey from '~/utils/get-day-key'
+import ListRemindersModal from '~/widgets/list-reminders-modal'
 
 export default function IndexPage() {
   const { controller } = useModal()
@@ -14,11 +14,13 @@ export default function IndexPage() {
       </header>
       <div className="m-auto max-w-6xl px-4 mt-4">
         <Calendar
-          onDayClick={day =>
-            controller?.open(UpsertReminderModal as any, {
-              dayKey: getDayKey(day)
-            })
-          }
+          onDayClick={(dayKey, remindersCount) => {
+            if (remindersCount > 0) {
+              return controller?.open(ListRemindersModal as any, { dayKey })
+            }
+
+            return controller?.open(UpsertReminderModal as any, { dayKey })
+          }}
         />
       </div>
     </div>

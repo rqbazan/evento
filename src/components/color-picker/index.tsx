@@ -23,12 +23,12 @@ const palette = [
 ]
 
 export interface ColorPickerProps {
-  defaultValue: string
+  value: string
   onChange(color: string): void
 }
 
 const ColorPicker: React.FC<ColorPickerProps> = ({
-  defaultValue = palette[0],
+  value: defaultValue = palette[0],
   onChange
 }) => {
   const [value, setValue] = React.useState(defaultValue)

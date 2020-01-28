@@ -46,7 +46,7 @@ function removeReminder(
 
   return immer(remindersBy, draft => {
     const reminders = draft[dayKey]
-    draft[dayKey] = reminders.filter(x => x.id === reminderId)
+    draft[dayKey] = reminders.filter(x => x.id !== reminderId)
   })
 }
 
