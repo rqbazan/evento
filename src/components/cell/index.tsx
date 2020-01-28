@@ -9,7 +9,7 @@ import cs from 'classnames'
 export interface CellProps {
   date: Date
   className?: string
-  onClick(): void
+  onClick?: () => void
 }
 
 const Cell: React.FC<CellProps> = ({ className, date, onClick, children }) => {
@@ -18,7 +18,7 @@ const Cell: React.FC<CellProps> = ({ className, date, onClick, children }) => {
   const highlighted = isWeekend(date)
 
   function onSafeClick() {
-    if (!disabled) {
+    if (!disabled && onClick) {
       onClick()
     }
   }

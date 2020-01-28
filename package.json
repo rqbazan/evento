@@ -19,7 +19,7 @@
     "format": "yarn prettier --write",
     "check-format": "yarn prettier --list-different",
     "check-types": "tsc",
-    "validate": "run-p check-format check-types lint build",
+    "validate": "run-p check-format check-types lint",
     "test": "jest",
     "cic": "node ./scripts/create-icon-component.js"
   },

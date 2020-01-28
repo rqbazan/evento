@@ -8,15 +8,15 @@ export const Default = () => {
   return (
     <Cell date={new Date()}>
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#efdcee"
-        text="HR Interview"
+        description="HR Interview"
         className="mt-2 mb-2"
       />
       <ReminderPreview
-        dueDate={new Date()}
+        time="11:00"
         bgColor="#efdc00"
-        text="Family Launch"
+        description="Family Launch"
         className="mb-2"
       />
     </Cell>
@@ -27,39 +27,39 @@ export const Overflow = () => {
   return (
     <Cell date={new Date()}>
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#efdcee"
-        text="HR Interview"
+        description="HR Interview"
         className="mt-2 mb-2"
       />
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#efdc00"
-        text="Family Launch"
+        description="Family Launch"
         className="mb-2"
       />
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#ee00ee"
-        text="Go to cinema"
+        description="Go to cinema"
         className="mb-2"
       />
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#db4968"
-        text="Go to cinema"
+        description="Go to cinema"
         className="mb-2"
       />
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#68c583"
-        text="Go to cinema"
+        description="Go to cinema"
         className="mb-2"
       />
       <ReminderPreview
-        dueDate={new Date()}
+        time="10:00"
         bgColor="#9453a3"
-        text="Go to cinema"
+        description="Go to cinema"
         className="mb-2"
       />
     </Cell>
