@@ -1,4 +1,3 @@
-/* eslint jsx-a11y/click-events-have-key-events: 0, jsx-a11y/no-static-element-interactions: 0 */
 import React from 'react'
 import formatDate from 'date-fns/format'
 import isToday from 'date-fns/isToday'
@@ -18,13 +17,18 @@ const Cell: React.FC<CellProps> = ({ className, date, onClick, children }) => {
   const disabled = isPast(endOfDay(date))
   const highlighted = isWeekend(date)
 
+  function onSafeClick() {
+    if (!disabled) {
+      onClick()
+    }
+  }
+
   return (
     <div
-      onClick={() => {
-        if (!disabled) {
-          onClick()
-        }
-      }}
+      role="gridcell"
+      tabIndex={0}
+      onClick={onSafeClick}
+      onKeyPress={onSafeClick}
       style={{ minHeight: 120, maxHeight: 0 }}
       className={cs(
         'flex flex-col border border-border p-2 bg-white cursor-pointer focus:outline-none',

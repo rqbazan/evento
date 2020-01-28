@@ -1,4 +1,3 @@
-/* eslint jsx-a11y/click-events-have-key-events: 0, jsx-a11y/no-static-element-interactions: 0, jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react'
 import { darken } from 'polished'
 import cs from 'classnames'
@@ -20,8 +19,14 @@ const ReminderPreview: React.FC<ReminderPreviewProps> = ({
 }) => {
   return (
     <div
+      role="button"
+      tabIndex={0}
+      onKeyPress={onClick}
       onClick={onClick}
-      className={cs('rounded px-2 py-1 font-medium text-sm', className)}
+      className={cs(
+        'rounded px-2 py-1 font-medium text-sm focus:outline-none',
+        className
+      )}
       style={{
         backgroundColor: bgColor,
         color: darken(0.4, bgColor)

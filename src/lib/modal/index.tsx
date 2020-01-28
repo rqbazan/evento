@@ -1,4 +1,4 @@
-/* eslint jsx-a11y/click-events-have-key-events: 0, jsx-a11y/no-static-element-interactions: 0, jsx-a11y/interactive-supports-focus: 0 */
+/* eslint jsx-a11y/click-events-have-key-events: 0, jsx-a11y/no-static-element-interactions: 0 */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Icon from '~/components/icon'
@@ -63,6 +63,7 @@ export function ModalCanvas() {
           <div className="relative">
             <div
               role="button"
+              tabIndex={0}
               className="absolute right-0 w-8 h-8"
               onClick={controller.close}
             >
