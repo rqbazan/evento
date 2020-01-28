@@ -64,7 +64,7 @@ export function ModalCanvas() {
             <div
               role="button"
               tabIndex={0}
-              className="absolute right-0 w-8 h-8"
+              className="absolute right-0 w-8 h-8 focus:outline-none"
               onClick={controller.close}
             >
               <Icon name="close" />
